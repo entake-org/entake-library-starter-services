@@ -1,0 +1,184 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.entake.library</groupId>
+	<artifactId>heap-services</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>heap-services</name>
+	<url>https://maven.apache.org</url>
+
+	<properties>
+		<start-class>io.entake.library.Application</start-class>
+		<java.version>21</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<parent>
+		<groupId>io.sdsolutions.particle</groupId>
+		<artifactId>parent</artifactId>
+		<version>3.2.6</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.sdsolutions.particle</groupId>
+			<artifactId>audit</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.sdsolutions.particle</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.sdsolutions.particle</groupId>
+			<artifactId>database</artifactId>
+		</dependency>
+
+        <dependency>
+            <groupId>io.sdsolutions.particle</groupId>
+            <artifactId>exceptions</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.sdsolutions.particle</groupId>
+            <artifactId>smartystreets</artifactId>
+        </dependency>
+
+		<dependency>
+			<groupId>io.sdsolutions.particle</groupId>
+			<artifactId>security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+		</dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta-extensions-liquibase</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+        <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+            <plugin>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq-codegen-maven</artifactId>
+                <version>${jooq.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <generator>
+                        <database>
+                            <name>org.jooq.meta.extensions.liquibase.LiquibaseDatabase</name>
+                            <properties>
+
+                                <property>
+                                    <key>rootPath</key>
+                                    <value>${basedir}/src/main/resources</value>
+                                </property>
+
+                                <property>
+                                    <key>scripts</key>
+                                    <value>db.changelog.xml</value>
+                                </property>
+
+                                <property>
+                                    <key>includeLiquibaseTables</key>
+                                    <value>false</value>
+                                </property>
+
+                                <property>
+                                    <key>database.liquibaseSchemaName</key>
+                                    <value>lb</value>
+                                </property>
+
+                                <property>
+                                    <key>changeLogParameters.contexts</key>
+                                    <value>!test</value>
+                                </property>
+                            </properties>
+                        </database>
+                        <target>
+                            <packageName>io.entake.library.heap.database</packageName>
+                            <directory>target/generated-sources/jooq</directory>
+                        </target>
+                    </generator>
+                </configuration>
+            </plugin>
+		</plugins>
+	</build>
+</project>
