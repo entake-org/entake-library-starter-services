@@ -2,10 +2,15 @@ package io.entake.library.config;
 
 import io.sdsolutions.particle.core.config.MasterApplicationConfig;
 import io.sdsolutions.particle.core.dozer.MapperConverters;
+import org.h2.tools.Server;
 import org.modelmapper.Converter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +28,12 @@ public class ApplicationConfig extends MasterApplicationConfig {
         converters.add(MapperConverters.LOCALDATETIME_OFFSETDATETIME);
         converters.add(MapperConverters.OFFSETDATETIME_LOCALDATETIME);
         return converters;
+    }
+
+    @ConditionalOnProperty(name="spring.h2.console.enabled", havingValue="true")
+    @Bean(initMethod = "start", destroyMethod = "stop")
+    public Server h2Server(Environment environment) throws SQLException {
+        return Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", environment.getRequiredProperty("h2.port"));
     }
 
 }
