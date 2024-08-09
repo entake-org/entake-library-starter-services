@@ -1,4 +1,4 @@
-package io.entake.demo;
+package io.entake.library;
 
 import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,12 +17,8 @@ import org.springframework.web.WebApplicationInitializer;
 		R2dbcAutoConfiguration.class
 })
 @Configuration
-@ComponentScan(basePackages = { Application.PARTICLE_PACKAGES, Application.ENTAKE_PACKAGES })
+@ComponentScan(basePackages = { "io.entake" })
 public class Application extends SpringBootServletInitializer implements WebApplicationInitializer {
-
-	public static final String NAME = "Entake Demo Services";
-    public static final String PARTICLE_PACKAGES = "io.sdsolutions";
-    public static final String ENTAKE_PACKAGES = "io.entake";
 
 	private static final Class<Application> APPLICATION_CLASS = Application.class;
 

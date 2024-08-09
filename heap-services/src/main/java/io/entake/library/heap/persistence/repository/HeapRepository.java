@@ -1,7 +1,7 @@
 package io.entake.library.heap.persistence.repository;
 
 import io.entake.library.heap.presentation.model.HeapApplicationDTO;
-import io.sdsolutions.particle.core.model.IdDTO;
+import io.entake.particle.core.model.IdDTO;
 
 import java.util.List;
 

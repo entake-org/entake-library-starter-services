@@ -1,7 +1,7 @@
 package io.entake.library.config;
 
-import io.sdsolutions.particle.exceptions.UnauthorizedException;
-import io.sdsolutions.particle.security.filter.AbstractSecurityFilter;
+import io.entake.particle.exceptions.UnauthorizedException;
+import io.entake.particle.security.filter.AbstractSecurityFilter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;

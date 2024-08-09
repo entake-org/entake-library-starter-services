@@ -1,6 +1,6 @@
 package io.entake.library.config;
 
-import io.sdsolutions.particle.smartystreets.config.SmartyStreetsConfig;
+import io.entake.particle.smartystreets.config.SmartyStreetsConfig;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration

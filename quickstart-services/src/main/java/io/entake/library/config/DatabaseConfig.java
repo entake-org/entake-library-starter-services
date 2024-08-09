@@ -1,6 +1,6 @@
 package io.entake.library.config;
 
-import io.sdsolutions.particle.database.config.JooqDatabaseConfiguration;
+import io.entake.particle.database.config.JooqDatabaseConfiguration;
 import org.jooq.SQLDialect;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

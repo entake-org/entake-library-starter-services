@@ -4,14 +4,15 @@ import com.smartystreets.api.exceptions.SmartyException;
 import io.entake.library.quickstart.presentation.model.ErrorResponseDTO;
 import io.entake.library.quickstart.presentation.model.AddressDTO;
 import io.entake.library.quickstart.presentation.model.QuickstartSubmissionDTO;
-import io.sdsolutions.particle.core.model.IdDTO;
-import io.sdsolutions.particle.smartystreets.model.AddressInputDTO;
-import io.sdsolutions.particle.smartystreets.model.AddressResultDTO;
-import io.sdsolutions.particle.smartystreets.services.AddressService;
+import io.entake.particle.core.model.IdDTO;
+import io.entake.particle.smartystreets.model.AddressInputDTO;
+import io.entake.particle.smartystreets.model.AddressResultDTO;
+import io.entake.particle.smartystreets.services.AddressService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,15 +27,14 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class QuickstartValidationController {
 
-    private final AddressService addressService;
+    private AddressService addressService;
 
-    private final boolean smartyStreetsEnabled;
+    @Value("#{new Boolean('${smartystreets.enabled}')}")
+    private boolean smartyStreetsEnabled;
 
-    public QuickstartValidationController(AddressService addressService, Environment environment) {
+    @Autowired(required = false)
+    public void setAddressService(AddressService addressService) {
         this.addressService = addressService;
-
-        String enabled = environment.getProperty("smartystreets.enabled");
-        this.smartyStreetsEnabled = false;//"true".equalsIgnoreCase(enabled);
     }
 
     @PostMapping("/validate")

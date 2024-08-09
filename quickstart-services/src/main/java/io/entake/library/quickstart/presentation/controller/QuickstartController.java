@@ -2,8 +2,8 @@ package io.entake.library.quickstart.presentation.controller;
 
 import io.entake.library.quickstart.persistence.repository.QuickstartRepository;
 import io.entake.library.quickstart.presentation.model.QuickstartSubmissionDTO;
-import io.sdsolutions.particle.core.model.IdDTO;
-import io.sdsolutions.particle.exceptions.NotFoundException;
+import io.entake.particle.core.model.IdDTO;
+import io.entake.particle.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

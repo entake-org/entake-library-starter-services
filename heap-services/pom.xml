@@ -18,9 +18,9 @@
 	</properties>
 
 	<parent>
-		<groupId>io.sdsolutions.particle</groupId>
+		<groupId>io.entake.particle</groupId>
 		<artifactId>parent</artifactId>
-		<version>3.2.6</version>
+		<version>3.3.2</version>
 	</parent>
 
 	<dependencies>
@@ -35,38 +35,33 @@
 		</dependency>
 
 		<dependency>
-			<groupId>io.sdsolutions.particle</groupId>
+			<groupId>io.entake.particle</groupId>
 			<artifactId>audit</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>io.sdsolutions.particle</groupId>
+			<groupId>io.entake.particle</groupId>
 			<artifactId>core</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>io.sdsolutions.particle</groupId>
+			<groupId>io.entake.particle</groupId>
 			<artifactId>database</artifactId>
 		</dependency>
 
         <dependency>
-            <groupId>io.sdsolutions.particle</groupId>
+            <groupId>io.entake.particle</groupId>
             <artifactId>exceptions</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>io.sdsolutions.particle</groupId>
+            <groupId>io.entake.particle</groupId>
             <artifactId>smartystreets</artifactId>
         </dependency>
 
 		<dependency>
-			<groupId>io.sdsolutions.particle</groupId>
+			<groupId>io.entake.particle</groupId>
 			<artifactId>security</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>net.logstash.logback</groupId>
-			<artifactId>logstash-logback-encoder</artifactId>
 		</dependency>
 
         <dependency>
@@ -79,11 +74,6 @@
             <artifactId>jooq-meta-extensions-liquibase</artifactId>
             <version>${jooq.version}</version>
         </dependency>
-
-		<dependency>
-			<groupId>commons-beanutils</groupId>
-			<artifactId>commons-beanutils</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>

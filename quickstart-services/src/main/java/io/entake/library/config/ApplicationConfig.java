@@ -1,7 +1,7 @@
 package io.entake.library.config;
 
-import io.sdsolutions.particle.core.config.MasterApplicationConfig;
-import io.sdsolutions.particle.core.dozer.MapperConverters;
+import io.entake.particle.core.config.MasterApplicationConfig;
+import io.entake.particle.core.dozer.MapperConverters;
 import org.h2.tools.Server;
 import org.modelmapper.Converter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

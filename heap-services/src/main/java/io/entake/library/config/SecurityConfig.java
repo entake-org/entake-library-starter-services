@@ -1,14 +1,11 @@
 package io.entake.library.config;
 
-import io.sdsolutions.particle.security.config.CorsConfigurationProperties;
-import io.sdsolutions.particle.security.config.impl.PassThroughSecurityConfiguration;
-import io.sdsolutions.particle.security.services.SecurityService;
-import io.sdsolutions.particle.security.services.impl.SecurityServiceImpl;
-import org.springframework.context.annotation.Bean;
+import io.entake.particle.security.config.CorsConfigurationProperties;
+import io.entake.particle.security.config.impl.PassThroughSecurityConfiguration;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -16,15 +13,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public class SecurityConfig extends PassThroughSecurityConfiguration {
 
     public SecurityConfig(
-            UserDetailsService userDetailsService,
+            Environment environment,
             CorsConfigurationProperties corsConfigurationProperties
     ) {
-        super(userDetailsService, corsConfigurationProperties);
-    }
-
-    @Bean
-    public SecurityService securityService() {
-        return new SecurityServiceImpl();
+        super(environment, corsConfigurationProperties);
     }
 
 }
