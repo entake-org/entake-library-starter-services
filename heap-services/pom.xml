@@ -20,7 +20,7 @@
 	<parent>
 		<groupId>io.entake.particle</groupId>
 		<artifactId>parent</artifactId>
-		<version>3.3.2</version>
+		<version>3.5.3</version>
 	</parent>
 
 	<dependencies>
