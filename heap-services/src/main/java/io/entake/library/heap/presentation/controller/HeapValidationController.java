@@ -1,10 +1,7 @@
 package io.entake.library.heap.presentation.controller;
 
 import com.smartystreets.api.exceptions.SmartyException;
-import io.entake.library.heap.presentation.model.ErrorResponseDTO;
-import io.entake.library.heap.presentation.model.HeapAddressDTO;
-import io.entake.library.heap.presentation.model.HeapApplicationDTO;
-import io.entake.library.heap.presentation.model.HeapHouseholdMemberDTO;
+import io.entake.library.heap.presentation.model.*;
 import io.entake.particle.core.model.IdDTO;
 import io.entake.particle.smartystreets.model.AddressInputDTO;
 import io.entake.particle.smartystreets.model.AddressResultDTO;
@@ -149,6 +146,15 @@ public class HeapValidationController {
         } else {
             return doFakeAddressValidation(address);
         }
+    }
+
+    @PostMapping("/validate/snap")
+    public ResponseEntity<?> doSnapTaCaseNumberValidation(@RequestBody CaseNumberDTO dto) {
+        if (!StringUtils.startsWith(dto.getCaseNumber(), "NYS-")) {
+            return new ResponseEntity<>(new ErrorResponseDTO(List.of("220")), HttpStatus.UNPROCESSABLE_ENTITY);
+        }
+
+        return new  ResponseEntity<>(new IdDTO(""), HttpStatus.OK);
     }
 
     private ResponseEntity<?> doRealAddressValidation(HeapAddressDTO address) {

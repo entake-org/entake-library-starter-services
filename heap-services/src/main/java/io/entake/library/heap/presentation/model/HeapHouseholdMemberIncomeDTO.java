@@ -14,5 +14,4 @@ public class HeapHouseholdMemberIncomeDTO {
     private String employer;
     private String  payFrequency;
     private BigDecimal grossAmount;
-    private String studentFlag;
 }

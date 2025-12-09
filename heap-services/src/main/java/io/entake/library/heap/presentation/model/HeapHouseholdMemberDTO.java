@@ -25,5 +25,6 @@ public class HeapHouseholdMemberDTO {
     private String snapOrTaCaseNumber;
     private String blindOrDisabledFlag;
     private String veteranFlag;
+    private String studentFlag;
     private HeapHouseholdMemberIncomeDTO income;
 }
