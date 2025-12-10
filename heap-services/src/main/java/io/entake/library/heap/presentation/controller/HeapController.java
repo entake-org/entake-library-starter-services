@@ -37,7 +37,7 @@ public class HeapController {
                         .firstName(entrypointRequest.getFirstName())
                         .middleName("J")
                         .lastName(entrypointRequest.getLastName())
-                        .dateOfBirth(entrypointRequest.getDateOfBirth() != null ? entrypointRequest.getDateOfBirth().toInstant().toEpochMilli() : null)
+                        .dateOfBirth(entrypointRequest.getDateOfBirth())
                         .originalCaseNumber(UUID.randomUUID().toString().replace("-", ""))
                         .homeAddress(
                                 HeapAddressDTO.builder()

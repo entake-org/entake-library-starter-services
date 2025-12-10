@@ -2,7 +2,7 @@ package io.entake.library.heap.presentation.model;
 
 import lombok.*;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -14,7 +14,7 @@ public class HeapApplicantDTO {
     private String firstName;
     private String middleName;
     private String lastName;
-    private OffsetDateTime dateOfBirth;
+    private LocalDateTime dateOfBirth;
     private String ssn;
     private String sex;
     private String gender;
@@ -30,7 +30,7 @@ public class HeapApplicantDTO {
     private String readLanguage;
     private String interpreterRequiredFlag;
     private String appliedToHeapFlag;
-    private OffsetDateTime heapApplicationDate;
+    private LocalDateTime heapApplicationDate;
     private String snapOrTaFlag;
     private String snapOrTaCaseNumber;
     private List<HeapApplicantAliasDTO> aliases;

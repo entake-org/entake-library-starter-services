@@ -2,7 +2,7 @@ package io.entake.library.quickstart.presentation.model;
 
 import lombok.*;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -18,7 +18,7 @@ public class QuickstartSubmissionDTO {
     private String ssn;
     private String gender;
     private String maritalStatus;
-    private OffsetDateTime dob;
+    private LocalDateTime dob;
     private String email;
     private String phoneNumber;
     private String phoneType;

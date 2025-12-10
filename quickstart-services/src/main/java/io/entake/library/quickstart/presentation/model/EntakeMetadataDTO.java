@@ -2,7 +2,8 @@ package io.entake.library.quickstart.presentation.model;
 
 import lombok.*;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -12,9 +13,11 @@ import java.time.OffsetDateTime;
 public class EntakeMetadataDTO {
     private String submissionId;
     private String submissionLocale;
+    private LocalDateTime submissionDate;
     private String submissionUser;
-    private OffsetDateTime submissionDate;
     private String submissionStatus;
-    private OffsetDateTime decisionDate;
+    private LocalDateTime decisionDate;
     private String decisionOwner;
+    private String environment;
+    private List<EntakeMetadataDocumentDTO> documents;
 }

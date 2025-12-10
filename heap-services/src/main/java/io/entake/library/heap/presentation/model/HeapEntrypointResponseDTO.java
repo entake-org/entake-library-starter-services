@@ -2,6 +2,8 @@ package io.entake.library.heap.presentation.model;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,6 +14,6 @@ public class HeapEntrypointResponseDTO {
     private String firstName;
     private String middleName;
     private String lastName;
-    private Long dateOfBirth;
+    private LocalDateTime dateOfBirth;
     private HeapAddressDTO homeAddress;
 }

@@ -25,8 +25,6 @@ public class ApplicationConfig extends MasterApplicationConfig {
         converters.add(MapperConverters.DATE_LOCALDATETIME);
         converters.add(MapperConverters.BOOLEAN_BYTE);
         converters.add(MapperConverters.TRIM_STRING);
-        converters.add(MapperConverters.LOCALDATETIME_OFFSETDATETIME);
-        converters.add(MapperConverters.OFFSETDATETIME_LOCALDATETIME);
         return converters;
     }
 

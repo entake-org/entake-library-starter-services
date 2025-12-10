@@ -2,6 +2,7 @@ package io.entake.library.heap.presentation.model;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 @Getter
@@ -17,7 +18,7 @@ public class HeapHouseholdMemberDTO {
     private String gender;
     private String latinoFlag;
     private String race;
-    private OffsetDateTime dateOfBirth;
+    private LocalDateTime dateOfBirth;
     private String ssn;
     private String citizenOrQualifiedNonCitizenFlag;
     private String applicantRelationship;

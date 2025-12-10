@@ -2,6 +2,7 @@ package io.entake.library.heap.presentation.model;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 @Getter
@@ -12,6 +13,6 @@ import java.time.OffsetDateTime;
 public class HeapEntrypointRequestDTO {
     private String firstName;
     private String lastName;
-    private OffsetDateTime dateOfBirth;
+    private LocalDateTime dateOfBirth;
     private String lastFourSsn;
 }
