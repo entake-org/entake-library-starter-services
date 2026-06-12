@@ -14,6 +14,7 @@ public class ApiKeyFilter extends AbstractSecurityFilter {
 
     private static final String API_KEY_HEADER = "api_key";
     private static final String PUBLIC_ENDPOINT_PATH = "/api/public";
+    private static final String ACTUATOR_PATH = "/actuator";
 
     private final String API_KEY;
 
@@ -38,6 +39,6 @@ public class ApiKeyFilter extends AbstractSecurityFilter {
         String uri = request.getRequestURI();
         uri = uri.substring(uri.indexOf('/', 1));
 
-        return uri.startsWith(PUBLIC_ENDPOINT_PATH);
+        return uri.startsWith(PUBLIC_ENDPOINT_PATH) || uri.startsWith(ACTUATOR_PATH);
     }
 }
