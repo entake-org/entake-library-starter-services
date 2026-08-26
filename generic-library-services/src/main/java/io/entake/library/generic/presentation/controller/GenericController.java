@@ -57,6 +57,32 @@ public class GenericController {
         return ResponseEntity.ok(repository.findSubmissions(page, pageSize, locale, status, environment, formId));
     }
 
+    @PostMapping("/entrypoint")
+    public ResponseEntity<EntrypointResponseDTO> handleEntrypoint(@RequestBody JsonNode payload) {
+        AddressDTO address1 = new AddressDTO();
+        address1.setStreetLine1("123 Main St.");
+        address1.setStreetLine2("Suite 100");
+        address1.setCity("New York");
+        address1.setState("NY");
+        address1.setZipcode("10001");
+
+        AddressDTO address2 = new AddressDTO();
+        address2.setStreetLine1("456 Nowhere Rd.");
+        address2.setStreetLine2("Apt. 2");
+        address2.setCity("Los Angeles");
+        address2.setState("CA");
+        address2.setZipcode("99999");
+
+        return ResponseEntity.ok(
+                EntrypointResponseDTO.builder()
+                        .firstName("Test")
+                        .middleName("Ing")
+                        .lastName("User")
+                        .addresses(List.of(address1, address2))
+                        .homeAddress(address2)
+                        .build()
+        );
+    }
 
     @PostMapping("/validate")
     public ResponseEntity<?> doFormValidation(@RequestBody JsonNode payload) {
