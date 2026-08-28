@@ -42,6 +42,15 @@ public class GenericRepositoryImpl implements GenericRepository {
         }
 
         metadata.setReceivedTime(getCurrentDateTime());
+
+        if (metadata.getDecisionDate() == null) {
+            metadata.setDecisionDate(metadata.getReceivedTime());
+        }
+
+        if (StringUtils.isBlank(metadata.getDecisionOwner())) {
+            metadata.setDecisionOwner("SYSTEM");
+        }
+
         dslContext.insertInto(ENTAKE_SUBMISSION).set(mapper.map(metadata, EntakeSubmissionRecord.class)).execute();
 
         List<EntakeSubmissionDocumentRecord> docs = mapper.mapList(metadata.getDocuments(), EntakeSubmissionDocumentRecord.class);
